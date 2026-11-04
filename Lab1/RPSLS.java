@@ -1,19 +1,21 @@
 
 import java.util.*;
 
-public class RPSLS {
-
-    enum Move {
+public class RPSLS
+{
+    enum Move
+    {
         ROCK, PAPER, SCISSORS, LIZARD, SPOCK
     }
 
-    public static int winner(Move a, Move b) {
-
-        if (a == b)
+    public static int winner(Move a, Move b)
+    {
+        if(a == b)
             return 0;
 
-        return switch (a) {
-
+        // Check which move wins against the other move
+        return switch(a)
+        {
             case ROCK ->
                 (b == Move.SCISSORS || b == Move.LIZARD) ? 1 : -1;
 
@@ -31,8 +33,8 @@ public class RPSLS {
         };
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
@@ -43,14 +45,16 @@ public class RPSLS {
 
         System.out.println("=== Rock Paper Scissors Lizard Spock ===");
 
-        for (int round = 1; round <= 5; round++) {
-
+        // Play the game for 5 rounds
+        for(int round = 1; round <= 5; round++)
+        {
             System.out.println("\nRound " + round);
 
             System.out.println("Enter Move (ROCK, PAPER, SCISSORS, LIZARD, SPOCK):");
 
             Move playerMove = Move.valueOf(sc.next().toUpperCase());
 
+            // Select a random move for computer
             Move computerMove = moves[rand.nextInt(moves.length)];
 
             System.out.println("Player Move   : " + playerMove);
@@ -58,26 +62,37 @@ public class RPSLS {
 
             int result = winner(playerMove, computerMove);
 
-            if (result == 1) {
+            // Update score according to round result
+            if(result == 1)
+            {
                 System.out.println("You Win This Round!");
                 playerScore++;
-            } else if (result == -1) {
+            }
+            else if(result == -1)
+            {
                 System.out.println("Computer Wins This Round!");
                 computerScore++;
-            } else {
+            }
+            else
+            {
                 System.out.println("Round Tied!");
             }
         }
 
-        
-        System.out.println("Your Score     : " + playerScore);
+        System.out.println("\nYour Score     : " + playerScore);
         System.out.println("Computer Score : " + computerScore);
 
-        if (playerScore > computerScore) {
+        // Display the final match winner
+        if(playerScore > computerScore)
+        {
             System.out.println("You Win " + playerScore + "-" + computerScore);
-        } else if (computerScore > playerScore) {
+        }
+        else if(computerScore > playerScore)
+        {
             System.out.println("Computer Wins " + computerScore + "-" + playerScore);
-        } else {
+        }
+        else
+        {
             System.out.println("Match Draw!");
         }
 
