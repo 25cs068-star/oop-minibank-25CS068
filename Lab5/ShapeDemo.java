@@ -1,96 +1,100 @@
-abstract  class Shape
+abstract class Shape
 {
-    abstract public  double area();
+    // Every shape must calculate its own area
+    abstract public double area();
 }
 
 class Circle extends Shape
 {
-    float redius;
-    Circle(float redius)
-    {
-        this.redius=redius;
+    double radius;
 
-        
+    Circle(double radius)
+    {
+        this.radius = radius;
     }
 
+    @Override
     public double area()
     {
-        return Math.PI *redius*redius;
+        return Math.PI * radius * radius;
     }
 }
 
 class Rectangle extends Shape
 {
+    double height;
+    double width;
 
-    float hight;
-    float width;
-
-    Rectangle(float hight, float width)
-    {   
-        this.hight=hight;
-        this.width=width;
-
-
+    Rectangle(double height, double width)
+    {
+        this.height = height;
+        this.width = width;
     }
+
+    @Override
     public double area()
     {
-        return  hight*width;
+        return height * width;
     }
-
-
 }
+
 class Triangle extends Shape
 {
-    float base;
-    float hight;
+    double base;
+    double height;
 
-    Triangle(float base, float hight)
-    {   
-        this.base=base;
-        this.hight=hight;
-
-
+    Triangle(double base, double height)
+    {
+        this.base = base;
+        this.height = height;
     }
+
+    @Override
     public double area()
     {
-        return  (hight*base)/2;
+        return (base * height) / 2;
     }
 }
- public class ShapeDemo
+
+public class ShapeDemo
 {
     public static void main(String arg[])
     {
-        Shape[] shapes={
+        // Store different shapes in one array
+        Shape[] shapes =
+        {
             new Circle(5),
-            new Rectangle(5,4),
-            new Triangle(3,4)
+            new Rectangle(5, 4),
+            new Triangle(3, 4)
         };
 
-        double total=0;
-        double largest=-1;
+        double total = 0;
+        double largest = -1;
+        String label = "";
 
-        String lable="";
-
-
-        for(Shape s:shapes)
+        // Calculate area of every shape using polymorphism
+        for(Shape s : shapes)
         {
+            double a = s.area();
 
-            System.out.println("Area:"+s.area());
-            total+=s.area();
-            if(largest<s.area())
+            total += a;
+
+            System.out.println("Area of " +
+                s.getClass().getSimpleName() + ": " + a);
+
+            // Display running total
+            System.out.println("Running Total: " + total);
+
+            // Track the shape with the largest area
+            if(largest < a)
             {
-            largest=s.area();
-            lable=s.getClass().getSimpleName();
+                largest = a;
+                label = s.getClass().getSimpleName();
             }
-            
-
         }
 
-        System.out.println("The total area is:"+total);
-        System.out.println("The largest area is "+largest+" of shape:"+lable);
-
-
-
-
+        System.out.println("The total area is: " + total);
+        System.out.println("The largest area is " +
+            largest + " of shape: " + label);
     }
 }
