@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 class PointDemo
 {
     private int x;
@@ -32,7 +34,14 @@ class PointDemo
 
         return x == p.x && y == p.y;
     }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(x, y);
+    }
 }
+
 public class Point
 {
     public static void main(String[] args)
@@ -52,6 +61,7 @@ public class Point
         {
             boolean found = false;
 
+            // Check whether this point appeared earlier
             for(int j = 0; j < i; j++)
             {
                 if(p[i].equals(p[j]))
@@ -61,6 +71,7 @@ public class Point
                 }
             }
 
+            // Count only distinct points
             if(!found)
             {
                 count++;
