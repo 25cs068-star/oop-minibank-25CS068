@@ -1,23 +1,28 @@
+
 class ParkingLot
 {
     private int twoWheelers;
     private int fourWheelers;
+
     private final int twoCap;
     private final int fourCap;
+
     private static long revenue = 0;
 
     public ParkingLot(int twoCap, int fourCap)
     {
         this.twoCap = twoCap;
         this.fourCap = fourCap;
+
         twoWheelers = 0;
         fourWheelers = 0;
     }
 
     public void park(String type)
     {
-        if(type.equals("two"))
+        if(type.equalsIgnoreCase("two"))
         {
+            // Check capacity before parking two wheeler
             if(twoWheelers < twoCap)
             {
                 twoWheelers++;
@@ -26,11 +31,12 @@ class ParkingLot
             }
             else
             {
-                System.out.println("Two Wheeler Section Full");
+                System.out.println("Full");
             }
         }
-        else if(type.equals("four"))
+        else if(type.equalsIgnoreCase("four"))
         {
+            // Check capacity before parking four wheeler
             if(fourWheelers < fourCap)
             {
                 fourWheelers++;
@@ -39,15 +45,20 @@ class ParkingLot
             }
             else
             {
-                System.out.println("Four Wheeler Section Full");
+                System.out.println("Full");
             }
+        }
+        else
+        {
+            System.out.println("Invalid Vehicle Type");
         }
     }
 
     public void leave(String type)
     {
-        if(type.equals("two"))
+        if(type.equalsIgnoreCase("two"))
         {
+            // Decrease count only if vehicle is available
             if(twoWheelers > 0)
             {
                 twoWheelers--;
@@ -58,7 +69,7 @@ class ParkingLot
                 System.out.println("No Two Wheeler to Leave");
             }
         }
-        else if(type.equals("four"))
+        else if(type.equalsIgnoreCase("four"))
         {
             if(fourWheelers > 0)
             {
@@ -69,6 +80,10 @@ class ParkingLot
             {
                 System.out.println("No Four Wheeler to Leave");
             }
+        }
+        else
+        {
+            System.out.println("Invalid Vehicle Type");
         }
     }
 
@@ -105,6 +120,7 @@ class ParkingLot
 
         System.out.println("Two Wheelers = " + p.getTwoWheelers());
         System.out.println("Four Wheelers = " + p.getFourWheelers());
+
         System.out.println("Revenue = " + ParkingLot.getRevenue());
     }
 }
