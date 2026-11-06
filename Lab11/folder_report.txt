@@ -1,0 +1,14 @@
+FOLDER TREE REPORT
+==================
+File Name: file1.txt
+Size: 10 bytes
+Modified Time: 06-11-2026 19:48:31
+----------------------
+File Name: file2.txt
+Size: 14 bytes
+Modified Time: 06-11-2026 19:48:31
+----------------------
+File Name: file3.txt
+Size: 19 bytes
+Modified Time: 06-11-2026 19:48:31
+----------------------
