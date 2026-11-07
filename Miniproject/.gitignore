@@ -1,0 +1,9 @@
+*.class
+*.jar
+out/
+sources.txt
+data/
+logs/
+audit/
+reports/
+manifest.txt
