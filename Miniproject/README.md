@@ -1,5 +1,5 @@
-# 🏦 MiniBank Management System
-
+                                                  # 🏦 MiniBank Management System
+  
 <p align="center">
   <b>💳 A Java-Based Banking Management Application</b><br>
   <i>Manage Accounts • Process Transactions • Generate Reports</i>
