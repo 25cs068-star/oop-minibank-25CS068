@@ -1,0 +1,19 @@
+END OF DAY REPORT
+Generated   : 2026-11-07 22:42:25
+Logs folder : logs
+
+FILE                SIZE  LAST MODIFIED        LINES
+----                ----  -------------        -----
+evening.log        123 B  2026-11-07 21:56:28  3
+morning.log        122 B  2026-11-07 21:56:28  3
+transactions-2026-10-30.log    1333 B  2026-11-07 21:56:28  34
+transactions-2026-11-06.log    1332 B  2026-11-07 21:56:28  34
+transactions-2026-11-07.log    1334 B  2026-11-07 22:41:41  34
+
+SUMMARY
+Files read          : 5
+Total lines         : 108
+Deposits            : 99 transactions, total 8800
+Withdrawals         : 9 transactions, total 2600
+Net change          : 6200
+Bad lines skipped   : 0
